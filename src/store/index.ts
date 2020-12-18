@@ -1,8 +1,5 @@
-import { createStore } from "vuex";
+import { createLogger, createStore } from "vuex";
 
 export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+  plugins: process.env.NODE_ENV === "development" ? [createLogger()] : []
 });
