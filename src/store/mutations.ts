@@ -2,16 +2,16 @@ import { MutationTree } from "vuex";
 import { IState, ITodo } from "./state";
 
 export const MutationType = {
-  createItem: "CREATE_TODO",
-  setItems: "SET_ITEMS",
-  completeItem: "COMPLETE_ITEM",
+  createTodo: "CREATE_TODO",
+  setTodos: "SET_TODOS",
+  completeTodo: "COMPLETE_TODO",
   setLoading: "SET_LOADING"
 } as const;
 
 export type IMutations = {
-  [MutationType.createItem](state: IState, todo: ITodo): void;
-  [MutationType.setItems](state: IState, todos: ITodo[]): void;
-  [MutationType.completeItem](
+  [MutationType.createTodo](state: IState, todo: ITodo): void;
+  [MutationType.setTodos](state: IState, todos: ITodo[]): void;
+  [MutationType.completeTodo](
     state: IState,
     todo: Partial<ITodo> & { id: number }
   ): void;
@@ -19,13 +19,13 @@ export type IMutations = {
 };
 
 export const mutations: MutationTree<IState> & IMutations = {
-  [MutationType.createItem](state, todo) {
+  [MutationType.createTodo](state, todo) {
     state.todos.unshift(todo);
   },
-  [MutationType.setItems](state, todos) {
+  [MutationType.setTodos](state, todos) {
     state.todos = todos;
   },
-  [MutationType.completeItem](state, newTodo) {
+  [MutationType.completeTodo](state, newTodo) {
     const todo = state.todos.findIndex(({ id }) => id === newTodo.id);
     if (todo === -1) return;
     state.todos[todo] = { ...state.todos[todo], ...newTodo };

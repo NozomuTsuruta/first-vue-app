@@ -2,6 +2,7 @@ export type ITodo = {
   id: number;
   title: string;
   text: string;
+  completed: boolean;
 };
 
 export type IState = {
