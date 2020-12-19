@@ -4,13 +4,14 @@
       <div class="flex-grow m-1 ml-3">
         <input
           type="text"
-          class="cw-full focus:outline-none"
+          v-model="text"
+          class="w-full focus:outline-none"
           placeholder="What task do you need to complete"
         />
       </div>
       <div class="flex-shrink-0">
         <button
-          class="bg-green-500 hover bg-green-700 text-white font-bold py-2 px-3 rounded"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded"
         >
           Add
         </button>

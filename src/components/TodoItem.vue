@@ -4,7 +4,11 @@
     :class="completed ? 'border-green-500' : 'border-white'"
   >
     <div class="flex-shrink-0 m-1 ml-3 align-middle">
-      <input type="text" :checked="completed" @change="toggleCompletion()" />
+      <input
+        type="checkbox"
+        :checked="completed"
+        @change="toggleCompletion()"
+      />
     </div>
     <div class="ml-6">
       <h4 class="text-xl text-gray-900 leading-tight">{{ text }}</h4>
