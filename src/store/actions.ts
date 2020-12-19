@@ -29,7 +29,6 @@ export const actions: ActionTree<IState, IState> & IActions = {
     commit(MutationType.setTodos, [
       {
         id: 1,
-        title: "Vue3",
         text: "Create awesome Vue 3 with Vuex 4 video!",
         completed: false
       }
